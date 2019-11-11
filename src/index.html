@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/ns-web-components-pc.esm.js"></script>
+    <script nomodule src="/build/ns-web-components-pc.js"></script>
+  </head>
+  <body>
+    <ns-list items="test"></ns-list>
+  </body>
+
+  <script>
+    const items = ['item1', 'item2', 'item3'];
+    // const items = `["item1", "item2", "item3"]`;
+    const nsList = document.querySelector('ns-list');
+    nsList.items = items;
+    nsList.addEventListener('listEmitted', event => {
+      console.log('Listened in index: ', typeof event.detail);
+      console.log(event.detail);
+    });
+  </script>
+</html>
